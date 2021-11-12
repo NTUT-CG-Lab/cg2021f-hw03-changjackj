@@ -265,6 +265,26 @@
 						rad[5] = -rad[6];
 					}
 				}
+
+				if(key === 'KeyS'){
+					let angle_data = {
+						"Right X negative angle":rad[0],
+						"Left X negative angle":rad[1],
+						"Right X positive angle":rad[2],
+						"Left X positive angle":rad[3],
+						"Right Y negative angle":rad[4],
+						"Left Y negative angle":rad[5],
+						"Right Y positive angle":rad[6],
+						"Left Y positive angle":rad[7]
+					};
+
+					const a = document.createElement("a");
+					a.href = URL.createObjectURL(new Blob([JSON.stringify(angle_data, null, 2)], {type: "json/plain"}));
+					a.setAttribute("download", "angle_data.json");
+					document.body.appendChild(a);
+					a.click();
+					document.body.removeChild(a);
+				}
 				
 				if(key === 'Digit1'){
 					cameraStatus -= 1;
